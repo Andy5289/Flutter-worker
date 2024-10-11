@@ -51,8 +51,25 @@ set(FLUTTER_MANAGED_DIR "${CMAKE_CURRENT_SOURCE_DIR}/flutter")
 add_subdirectory(${FLUTTER_MANAGED_DIR})
 
 # System-level dependencies.
+# Find PkgConfig
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(GTK REQUIRED IMPORTED_TARGET gtk+-3.0)
+
+# Check for GTK+3.0
+pkg_check_modules(GTK REQUIRED gtk+-3.0)
+
+# Ensure GTK+ was found
+if (NOT GTK_FOUND)
+    message(FATAL_ERROR "GTK+3.0 is required but was not found. Please install it or check your pkg-config setup.")
+endif()
+
+# Include directories
+include_directories(${GTK_INCLUDE_DIRS})
+
+# Link libraries
+target_link_libraries(your_target_name ${GTK_LIBRARIES})
+
+# Optionally, add any other configurations needed for your target
+
 
 add_definitions(-DAPPLICATION_ID="${APPLICATION_ID}")
 
