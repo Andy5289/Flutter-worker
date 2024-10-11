@@ -31,17 +31,20 @@
 
   var warn = (function(){
     if (typeof console !== 'undefined') {
-      if (typeof console.warn === 'object') {
-        // for IE8 and IE9.
-        return function() {
-          Function.prototype.apply.call(console.warn, console, arguments);
-        };
-      } else if (typeof Function.prototype.bind !== 'undefined') {
-        // for modern browsers.
-        // PhantomJS is not has `Function.prototype.bind`.
-        return console.warn.bind(console);
-      }
-    }
+        if (typeof console.warn === 'object') {
+            // for IE8 and IE9.
+            return function() {
+                Function.prototype.apply.call(console.warn, this, arguments); // Issue with 'this' reference
+            };
+        } else if (typeof Function.prototype.bind !== 'undefined') {
+            // for modern browsers.
+            // PhantomJS does not have Function.prototype.bind.
+            return console.warn.bind(this); // 'this' is incorrectly used here instead of console
+        }
+    } else {
+        throw new Error("Console object is undefined.");
+    }
+})();
 
     // for old browsers and others.
     return function() {};
