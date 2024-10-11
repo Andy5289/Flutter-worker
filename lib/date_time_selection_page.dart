@@ -85,14 +85,15 @@ class _DateTimeSelectionPageState extends State<DateTimeSelectionPage> {
       selectedTime!.minute,
     );
 
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => ElectricianBookingPage(
-          serviceName: widget.serviceName,
-          serviceImagePath: widget.serviceImagePath,
-          serviceOptions: widget.selectedServices,
-          totalCharge: widget.totalCharge,
-          selectedDateTime: selectedDateTime,
+Navigator.push(
+context,
+    MaterialPageRoute(
+    builder: (context) => ElectricianBookingPage(
+      serviceName: widget.serviceName ?? 'Electrician Service',  // Default value if serviceName is null
+      serviceImagePath: widget.serviceImagePath ?? 'assets/default_image.png',  // Default image if null
+      serviceOptions: widget.selectedServices.isNotEmpty ? widget.selectedServices : ['Standard Package'],  // Fallback option
+      totalCharge: widget.totalCharge != null ? widget.totalCharge : 100.0
+
         ),
       ),
     );
