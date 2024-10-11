@@ -15,9 +15,20 @@ void main() {
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  // Tap the '+' icon and trigger a frame.
+  (WidgetTester tester) async {
+  // Build the widget.
+  await tester.pumpWidget(MyApp());
+
+  // Check initial state - button is a specific color.
+  expect(find.byType(IconButton), findsOneWidget);
+  IconButton button = tester.widget(find.byIcon(Icons.add));
+  expect(button.color, equals(Colors.grey)); // Assume initial color is grey.
+
+  // Tap the button and pump to trigger a frame.
+  await tester.tap(find.byIcon(Icons.add));
+  await tester.pump();
+
 
     // Verify that our counter has incremented.
     expect(find.text('0'), findsNothing);
