@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "691594973493",
+    "firebase_url": "https://doodleshomes-7ffe2-default-rtdb.firebaseio.com",
+    "project_id": "doodleshomes-7ffe2",
+    "storage_bucket": "doodleshomes-7ffe2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691594973493:android:380bf3575821768c85fc7c",
+        "android_client_info": {
+          "package_name": "com.example.dh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-XnT-EyBmbiUjqmiJ6cbi8jdNlNdwvlw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691594973493:android:e099222ca5937b8885fc7c",
+        "android_client_info": {
+          "package_name": "your.package.name"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-XnT-EyBmbiUjqmiJ6cbi8jdNlNdwvlw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
